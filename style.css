@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     background-color: rgb(80, 80, 80);
     gap: 1px;
+    align-self: center;
 }
 
 .grid div {
@@ -17,18 +18,31 @@
     background-color: rgb(228, 228, 228)!important;
 }
 
-/* .bomb {
-    background-color: orange;
-} */
+.gameboard {
+    display: flex;
+    flex-direction: column;
+}
 
 .flex-wrapper {
     display: flex;
     align-items: center;
-    /* margin-bottom: -10px; */
+    align-self: center;
+}
+
+.reload-btn {
+    margin-inline: 30px;
+}
+
+.bombCounter {
+    height: 20px;
+    width: 30px;
+    font-size: medium;
+    border: 1px solid black;
+    text-align: end;
+    padding-right: 5px;
 }
 
 .timer {
-    margin-left: 20px;
     height: 20px;
     width: 40px;
     font-size: medium;
@@ -36,12 +50,8 @@
     text-align: center;
 }
 
-.bombCounter {
-    margin-left: 30px;
-    margin-right: 20px;
+.topbar-game {
     height: 20px;
-    width: 20px;
-    font-size: medium;
-    border: 1px solid black;
+    width: 50px;
     text-align: center;
 }
