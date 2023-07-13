@@ -1,0 +1,47 @@
+.grid {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(80, 80, 80);
+    gap: 1px;
+}
+
+.grid div {
+    height: 24px;
+    width: 24px;
+    background-color: gray;
+}
+
+.checked {
+    background-color: rgb(228, 228, 228)!important;
+}
+
+/* .bomb {
+    background-color: orange;
+} */
+
+.flex-wrapper {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: -10px; */
+}
+
+.timer {
+    margin-left: 20px;
+    height: 20px;
+    width: 40px;
+    font-size: medium;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.bombCounter {
+    margin-left: 30px;
+    margin-right: 20px;
+    height: 20px;
+    width: 20px;
+    font-size: medium;
+    border: 1px solid black;
+    text-align: center;
+}
