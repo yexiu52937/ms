@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const emptyArray = Array(width * width - bombNum).fill('valid')
         const gameArray = emptyArray.concat(bombsArray)
         const shuffledArray = gameArray.sort(() => Math.random() - 0.5)
+        console.log(shuffledArray)
 
         for (let i = 0; i < width * width; i++) {
             const square = document.createElement('div')

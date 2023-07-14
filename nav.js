@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let cur = "beginner"
     $('#topbar-game-ul').hide()
     let topbar_game = document.getElementById('topbar-game')
     topbar_game.addEventListener('click', function(e) {
@@ -10,4 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#topbar-game').val('')
         }
     })
+
+    // $('#beginner').click(function() {
+    //     $('#gameboard-beginner').hide()
+    // })
 })

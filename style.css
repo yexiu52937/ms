@@ -18,7 +18,7 @@
     background-color: rgb(228, 228, 228)!important;
 }
 
-.gameboard {
+.gameboard-beginner {
     display: flex;
     flex-direction: column;
 }
@@ -54,4 +54,22 @@
     height: 20px;
     width: 50px;
     text-align: center;
+    cursor: pointer;
+}
+
+a {
+    font-size: small;
+}
+
+/* .shown {
+    visibility: visible;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+} */
+
+.bomb {
+    background-color: antiquewhite;
 }
