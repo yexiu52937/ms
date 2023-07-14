@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
-    let width = 30
-    let height = 16
-    let bombNum = 99
+    let width = 8
+    let height = 8
+    let bombNum = 10
     let squares = []
     let flags = 0
     let isGameOver = false
@@ -14,6 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
     h1timer.innerHTML = `${seconds}:${ms}`
     let timer = null
     btn = document.getElementById('btn')
+    btn.addEventListener('click', function() {
+        clearInterval(timer)
+        grid.innerHTML = ''
+        squares = []
+        flags = 0
+        isGameOver = false
+        isGameStart = false
+        createBoard(width, height, bombNum)
+        btn.innerHTML = '🙂'
+        seconds = 0
+        ms = 0
+        h1timer.innerHTML = `${seconds}:${ms}`
+        timer = null
+        bombCounter.innerHTML = bombNum - flags
+    })
 
     let bombCounter = document.querySelector('.bombCounter')
     bombCounter.innerHTML = bombNum - flags
@@ -323,4 +338,61 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
     }
+
+    $('#beginner').click(function() {
+        clearInterval(timer)
+        width = 8
+        height = 8
+        bombNum = 10
+        grid.innerHTML = ''
+        squares = []
+        flags = 0
+        isGameOver = false
+        isGameStart = false
+        createBoard(width, height, bombNum)
+        btn.innerHTML = '🙂'
+        seconds = 0
+        ms = 0
+        h1timer.innerHTML = `${seconds}:${ms}`
+        timer = null
+        bombCounter.innerHTML = bombNum - flags
+    })
+
+    $('#intermediate').click(function() {
+        clearInterval(timer)
+        width = 16
+        height = 16
+        bombNum = 40
+        grid.innerHTML = ''
+        squares = []
+        flags = 0
+        isGameOver = false
+        isGameStart = false
+        createBoard(width, height, bombNum)
+        btn.innerHTML = '🙂'
+        seconds = 0
+        ms = 0
+        h1timer.innerHTML = `${seconds}:${ms}`
+        timer = null
+        bombCounter.innerHTML = bombNum - flags
+    })
+
+    $('#expert').click(function() {
+        clearInterval(timer)
+        width = 30
+        height = 16
+        bombNum = 99
+        grid.innerHTML = ''
+        squares = []
+        flags = 0
+        isGameOver = false
+        isGameStart = false
+        createBoard(width, height, bombNum)
+        btn.innerHTML = '🙂'
+        seconds = 0
+        ms = 0
+        h1timer.innerHTML = `${seconds}:${ms}`
+        timer = null
+        bombCounter.innerHTML = bombNum - flags
+    })
 })
