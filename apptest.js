@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             square.addEventListener('mouseup', function(e) {
                 if (leftMouseDown && rightMouseDown) {
-                    clickNeighbors(square, width)
+                    clickNeighbors(square, width, height)
                     // console.log('click neighbors')
                 }
                 if (e.button === 0) leftMouseDown = false
@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
     createBoard(width, height, bombNum)
 
     // check the neighboring squares of a square whose flagNum = num
-    function clickNeighbors(square, width) {
+    function clickNeighbors(square, width, height) {
         let total = square.getAttribute('num')
-        countFlag(square, width)
+        countFlag(square, width, height)
         let flagNum = square.getAttribute('flagNum')
         if (square.classList.contains('checked') && total == flagNum) {
             let curID = square.id
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const newSquare = document.getElementById(newID)
                     if (!newSquare.classList.contains('flag')) click(newSquare)
                 }
-                if (curID < width * width - 1 && !isRightEdge) {
+                if (curID < width * height - 1 && !isRightEdge) {
                     const newID = squares[parseInt(curID) + 1].id
                     const newSquare = document.getElementById(newID)
                     if (!newSquare.classList.contains('flag')) click(newSquare)
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const newSquare = document.getElementById(newID)
                     if (!newSquare.classList.contains('flag')) click(newSquare)
                 }
-                if (curID < width * (width - 1)) {
+                if (curID < width * (height - 1)) {
                     const newID = squares[parseInt(curID) + width].id
                     const newSquare = document.getElementById(newID)
                     if (!newSquare.classList.contains('flag')) click(newSquare)
@@ -130,12 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const newSquare = document.getElementById(newID)
                     if (!newSquare.classList.contains('flag')) click(newSquare)
                 }
-                if (curID < width * (width - 1) && !isLeftEdge) {
+                if (curID < width * (height - 1) && !isLeftEdge) {
                     const newID = squares[parseInt(curID) + width - 1].id
                     const newSquare = document.getElementById(newID)
                     if (!newSquare.classList.contains('flag')) click(newSquare)
                 }
-                if (curID < width * (width - 1) && !isRightEdge) {
+                if (curID < width * (height - 1) && !isRightEdge) {
                     const newID = squares[parseInt(curID) + width + 1].id
                     const newSquare = document.getElementById(newID)
                     if (!newSquare.classList.contains('flag')) click(newSquare)
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // count the number of flags around a square
-    function countFlag(square, width) {
+    function countFlag(square, width, height) {
         let curID = square.id
         let flagNum = 0
         const isLeftEdge = (curID % width === 0)
@@ -237,14 +237,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 checkForWin()
                 return
             }
-            checkSquare(square, curID, width) // run checkSquare if the square is blank
+            checkSquare(square, curID, width, height) // run checkSquare if the square is blank
         }
         square.classList.add('checked')
         checkForWin()
     }
 
     // check the neighboring squares of a square
-    function checkSquare(square, curID, width) {
+    function checkSquare(square, curID, width, height) {
         const isLeftEdge = (curID % width === 0)
         const isRightEdge = (curID % width === width - 1)
         setTimeout(() => {
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newSquare = document.getElementById(newID)
                 click(newSquare) // recursion
             }
-            if (curID < width * width - 1 && !isRightEdge) {
+            if (curID < width * height - 1 && !isRightEdge) {
                 const newID = squares[parseInt(curID) + 1].id
                 const newSquare = document.getElementById(newID)
                 click(newSquare)
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newSquare = document.getElementById(newID)
                 click(newSquare)
             }
-            if (curID < width * (width - 1)) {
+            if (curID < width * (height - 1)) {
                 const newID = squares[parseInt(curID) + width].id
                 const newSquare = document.getElementById(newID)
                 click(newSquare)
@@ -278,12 +278,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newSquare = document.getElementById(newID)
                 click(newSquare)
             }
-            if (curID < width * (width - 1) && !isLeftEdge) {
+            if (curID < width * (height - 1) && !isLeftEdge) {
                 const newID = squares[parseInt(curID) + width - 1].id
                 const newSquare = document.getElementById(newID)
                 click(newSquare)
             }
-            if (curID < width * (width - 1) && !isRightEdge) {
+            if (curID < width * (height - 1) && !isRightEdge) {
                 const newID = squares[parseInt(curID) + width + 1].id
                 const newSquare = document.getElementById(newID)
                 click(newSquare)
